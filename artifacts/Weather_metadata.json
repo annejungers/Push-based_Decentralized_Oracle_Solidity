@@ -436,11 +436,11 @@
 			]
 		},
 		"decentralized_oracle.sol": {
-			"keccak256": "0xe2a32d039f64a9867bf39a67efd178b5c80878da46d83ff7699461e434b4305c",
+			"keccak256": "0xe2cad0ad7de4e8f4553700471da31de54f9f5642f707406ea33539025ce3b424",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://5681afa88abd1ea49a6110bf6a5b7c28d8df39857e1a80f7f62ee95ffdb2c82f",
-				"dweb:/ipfs/QmYnaNW1HP2eGHuW2EDMfFJAHVLbvuvynFoFWC2WayTT25"
+				"bzz-raw://dcb20855ea65bf4f2b73e3cc361d1f8bb6e287185e44590c4d753330a692bc71",
+				"dweb:/ipfs/QmRZqA5dNA5fuxTnvqnL6ChbiA2gEHGHuVWmGwwdNV1BRs"
 			]
 		}
 	},

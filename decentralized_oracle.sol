@@ -108,3 +108,4 @@ contract Weather is ChainlinkClient {
         emit Hail(_result);
     }
 }
+
