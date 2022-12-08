@@ -1,0 +1,45 @@
+{
+	"compiler": {
+		"version": "0.8.7+commit.e28d00a7"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"decentralized_oracle.sol": "WeatherData"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"decentralized_oracle.sol": {
+			"keccak256": "0xa82d9dec7fb350cbc37c0962df82635880b4686f417f381016cea65143bf2f3f",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://dbe04e2dfd3d1ce7ab0958cf027faa178e42fb4f9cb3e723206ac196b65e64d1",
+				"dweb:/ipfs/QmegGzFbVFz3Uyc1XD8w3LPqFL7WxiSbd3U19F5YW1Sxpo"
+			]
+		}
+	},
+	"version": 1
+}
