@@ -1,8 +1,12 @@
 # push_based_Decentralized_Oracle_Solidity
 Lab lesson 1
 
+A Smart Contract provides the security, transparency, efficiency and trust to initiate an agreement inside a blockchain. 
+Since it is executed inside a blockchain, it cannot access any external data such as weather data, or currency rates.
+Blockchain Oracles are designed to mitigate this issue.
+
 For this lab we will be making a push based oracle providing weather services.
-The oracle must provide a function that retrieves weather data for a given city
+The oracle must provide a function that retrieves weather data for a given city.
 
 Requirements:
 + A weather service deploys the oracle and regularly submits new weather data
