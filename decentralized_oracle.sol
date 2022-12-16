@@ -1,111 +1,38 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.7;
+pragma solidity >=0.4.22 <0.9.0;
 
-import "@chainlink/contracts/src/v0.8/ChainlinkClient.sol";
+contract WeatherOracle {
+    //mapping from jobId => completion status for smart contract interactions to check;
+    //default false for all + non-existent
+    mapping(uint => bool) public jobStatus;
 
-/**
- * Request testnet LINK and ETH here: https://faucets.chain.link/
- * Find information on LINK Token Contracts and get the latest ETH and LINK faucets here: https://docs.chain.link/docs/link-token-contracts/
- */
+    //mapping jobId => temp result. Defaultfor no result is 0.
+    //A true jobStatus with a 0 job value implies the result is actually 0
+    mapping(uint => uint) public jobResults;
 
-/**
- * THIS IS AN EXAMPLE CONTRACT THAT USES HARDCODED VALUES FOR CLARITY.
- * THIS IS AN EXAMPLE CONTRACT THAT USES UN-AUDITED CODE.
- * DO NOT USE THIS CODE IN PRODUCTION.
- */
+    //current jobId available
+    uint jobId;
 
-contract Weather is ChainlinkClient {
-    using Chainlink for Chainlink.Request;
+    //event to trigger Oracle API
+    event NewJob(uint lat, uint lon, uint jobId);
 
-    bytes32 public avgTempJobId;
-    uint256 public avgTemp;
-    bytes32 public totalRainJobId;
-    uint256 public totalRain;
-    bytes32 public hailJobId;
-    uint256 public hail;
-    uint256 public fee;
+    constructor(uint initialId){
+        jobId = initialId;
+    } 
 
-    event AvgTemp(uint256 _result);
-    event TotalRain(uint256 _result);
-    event Hail(uint256 _result);
-
-    constructor(
-        address _link,
-        address _oracle,
-        bytes32 _avgTempJobId,
-        bytes32 _totalRainJobId,
-        bytes32 _hailJobId,
-        uint256 _fee
-    ) {
-        setChainlinkToken(_link);
-        setChainlinkOracle(_oracle);
-        avgTempJobId = _avgTempJobId;
-        totalRainJobId = _totalRainJobId;
-        hailJobId = _hailJobId;
-        fee = _fee;
+    function getWeather(uint lat, uint lon) public {
+        //emit event to API with data and JobId
+        emit NewJob(lat, lon, jobId);
+        //increment jobId for next job/function call
+        jobId++;
     }
 
-    function requestAvgTemp(string memory _from, string memory _to) external {
-        Chainlink.Request memory req = buildChainlinkRequest(
-            avgTempJobId,
-            address(this),
-            this.fulfillAvgTemp.selector
-        );
-        req.add("dateFrom", _from);
-        req.add("dateTo", _to);
-        req.add("method", "AVG");
-        req.add("column", "temp");
-        sendChainlinkRequest(req, fee);
-    }
+    function updateWeather(uint temp, uint _jobId)public {
+        //when update weather is called by node.js upon API results, data is updated
+        jobResults[_jobId] = temp;
+        jobStatus[_jobId] = true;
 
-    function fulfillAvgTemp(
-        bytes32 _requestId,
-        uint256 _result
-    ) external recordChainlinkFulfillment(_requestId) {
-        avgTemp = _result;
-        emit AvgTemp(_result);
-    }
-
-    function requestTotalRain(string memory _from, string memory _to) external {
-        Chainlink.Request memory req = buildChainlinkRequest(
-            totalRainJobId,
-            address(this),
-            this.fulfillTotalRain.selector
-        );
-        req.add("dateFrom", _from);
-        req.add("dateTo", _to);
-        req.add("method", "SUM");
-        req.add("column", "prcp");
-        sendChainlinkRequest(req, fee);
-    }
-
-    function fulfillTotalRain(
-        bytes32 _requestId,
-        uint256 _result
-    ) external recordChainlinkFulfillment(_requestId) {
-        totalRain = _result;
-        emit TotalRain(_result);
-    }
-
-    function requestHail(string memory _from, string memory _to) external {
-        Chainlink.Request memory req = buildChainlinkRequest(
-            hailJobId,
-            address(this),
-            this.fulfillHail.selector
-        );
-        req.add("dateFrom", _from);
-        req.add("dateTo", _to);
-        req.add("method", "SUM");
-        req.add("column", "hail");
-        sendChainlinkRequest(req, fee);
-    }
-
-    function fulfillHail(
-        bytes32 _requestId,
-        uint256 _result
-    ) external recordChainlinkFulfillment(_requestId) {
-        hail = _result;
-        emit Hail(_result);
+        //Users can now check status and result via automatic view function
+        //for public vars like these mappings
     }
 }
-
