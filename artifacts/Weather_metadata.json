@@ -436,11 +436,11 @@
 			]
 		},
 		"google_weather_oracle.sol": {
-			"keccak256": "0xe2a32d039f64a9867bf39a67efd178b5c80878da46d83ff7699461e434b4305c",
+			"keccak256": "0x1a1fce9cde734c5bea2a86842d67d35610075ba8ce0787acfa0b96848db4df02",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://5681afa88abd1ea49a6110bf6a5b7c28d8df39857e1a80f7f62ee95ffdb2c82f",
-				"dweb:/ipfs/QmYnaNW1HP2eGHuW2EDMfFJAHVLbvuvynFoFWC2WayTT25"
+				"bzz-raw://61fa588146316c45d012770b8452f30d92533eccf5ef7d8ea9ab9d696e8c52bd",
+				"dweb:/ipfs/QmNj7xR3HNLoH9sTrgZEZvn7Ur7A6KsBqj74fc9kjugaSA"
 			]
 		}
 	},

@@ -100,6 +100,7 @@ contract Weather is ChainlinkClient {
         sendChainlinkRequest(req, fee);
     }
 
+
     function fulfillHail(
         bytes32 _requestId,
         uint256 _result
@@ -108,3 +109,4 @@ contract Weather is ChainlinkClient {
         emit Hail(_result);
     }
 }
+
