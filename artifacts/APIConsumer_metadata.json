@@ -6,53 +6,9 @@
 	"output": {
 		"abi": [
 			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "_link",
-						"type": "address"
-					},
-					{
-						"internalType": "address",
-						"name": "_oracle",
-						"type": "address"
-					},
-					{
-						"internalType": "bytes32",
-						"name": "_avgTempJobId",
-						"type": "bytes32"
-					},
-					{
-						"internalType": "bytes32",
-						"name": "_totalRainJobId",
-						"type": "bytes32"
-					},
-					{
-						"internalType": "bytes32",
-						"name": "_hailJobId",
-						"type": "bytes32"
-					},
-					{
-						"internalType": "uint256",
-						"name": "_fee",
-						"type": "uint256"
-					}
-				],
+				"inputs": [],
 				"stateMutability": "nonpayable",
 				"type": "constructor"
-			},
-			{
-				"anonymous": false,
-				"inputs": [
-					{
-						"indexed": false,
-						"internalType": "uint256",
-						"name": "_result",
-						"type": "uint256"
-					}
-				],
-				"name": "AvgTemp",
-				"type": "event"
 			},
 			{
 				"anonymous": false,
@@ -97,81 +53,62 @@
 				"anonymous": false,
 				"inputs": [
 					{
-						"indexed": false,
-						"internalType": "uint256",
-						"name": "_result",
-						"type": "uint256"
+						"indexed": true,
+						"internalType": "address",
+						"name": "from",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
 					}
 				],
-				"name": "Hail",
+				"name": "OwnershipTransferRequested",
 				"type": "event"
 			},
 			{
 				"anonymous": false,
 				"inputs": [
 					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "from",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					}
+				],
+				"name": "OwnershipTransferred",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "bytes32",
+						"name": "requestId",
+						"type": "bytes32"
+					},
+					{
 						"indexed": false,
 						"internalType": "uint256",
-						"name": "_result",
+						"name": "volume",
 						"type": "uint256"
 					}
 				],
-				"name": "TotalRain",
+				"name": "RequestVolume",
 				"type": "event"
 			},
 			{
 				"inputs": [],
-				"name": "avgTemp",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "avgTempJobId",
-				"outputs": [
-					{
-						"internalType": "bytes32",
-						"name": "",
-						"type": "bytes32"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "fee",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "bytes32",
-						"name": "_requestId",
-						"type": "bytes32"
-					},
-					{
-						"internalType": "uint256",
-						"name": "_result",
-						"type": "uint256"
-					}
-				],
-				"name": "fulfillAvgTemp",
+				"name": "acceptOwnership",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -185,41 +122,23 @@
 					},
 					{
 						"internalType": "uint256",
-						"name": "_result",
+						"name": "_volume",
 						"type": "uint256"
 					}
 				],
-				"name": "fulfillHail",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "bytes32",
-						"name": "_requestId",
-						"type": "bytes32"
-					},
-					{
-						"internalType": "uint256",
-						"name": "_result",
-						"type": "uint256"
-					}
-				],
-				"name": "fulfillTotalRain",
+				"name": "fulfill",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
 				"inputs": [],
-				"name": "hail",
+				"name": "owner",
 				"outputs": [
 					{
-						"internalType": "uint256",
+						"internalType": "address",
 						"name": "",
-						"type": "uint256"
+						"type": "address"
 					}
 				],
 				"stateMutability": "view",
@@ -227,74 +146,33 @@
 			},
 			{
 				"inputs": [],
-				"name": "hailJobId",
+				"name": "requestVolumeData",
 				"outputs": [
 					{
 						"internalType": "bytes32",
-						"name": "",
+						"name": "requestId",
 						"type": "bytes32"
 					}
 				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "string",
-						"name": "_from",
-						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "_to",
-						"type": "string"
-					}
-				],
-				"name": "requestAvgTemp",
-				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
 				"inputs": [
 					{
-						"internalType": "string",
-						"name": "_from",
-						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "_to",
-						"type": "string"
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
 					}
 				],
-				"name": "requestHail",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "string",
-						"name": "_from",
-						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "_to",
-						"type": "string"
-					}
-				],
-				"name": "requestTotalRain",
+				"name": "transferOwnership",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
 				"inputs": [],
-				"name": "totalRain",
+				"name": "volume",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -307,15 +185,9 @@
 			},
 			{
 				"inputs": [],
-				"name": "totalRainJobId",
-				"outputs": [
-					{
-						"internalType": "bytes32",
-						"name": "",
-						"type": "bytes32"
-					}
-				],
-				"stateMutability": "view",
+				"name": "withdrawLink",
+				"outputs": [],
+				"stateMutability": "nonpayable",
 				"type": "function"
 			}
 		],
@@ -326,14 +198,36 @@
 		},
 		"userdoc": {
 			"kind": "user",
-			"methods": {},
-			"notice": "THIS IS AN EXAMPLE CONTRACT THAT USES HARDCODED VALUES FOR CLARITY. THIS IS AN EXAMPLE CONTRACT THAT USES UN-AUDITED CODE. DO NOT USE THIS CODE IN PRODUCTION.",
+			"methods": {
+				"acceptOwnership()": {
+					"notice": "Allows an ownership transfer to be completed by the recipient."
+				},
+				"constructor": {
+					"notice": "Initialize the link token and target oracle Goerli Testnet details: Link Token: 0x326C977E6efc84E512bB9C30f76E30c160eD06FB Oracle: 0xCC79157eb46F5624204f47AB42b3906cAA40eaB7 (Chainlink DevRel) jobId: ca98366cc7314957b8c012c72f05aeeb"
+				},
+				"fulfill(bytes32,uint256)": {
+					"notice": "Receive the response in the form of uint256"
+				},
+				"owner()": {
+					"notice": "Get the current owner"
+				},
+				"requestVolumeData()": {
+					"notice": "Create a Chainlink request to retrieve API response, find the target data, then multiply by 1000000000000000000 (to remove decimal places from data)."
+				},
+				"transferOwnership(address)": {
+					"notice": "Allows an owner to begin transferring ownership to a new address, pending."
+				},
+				"withdrawLink()": {
+					"notice": "Allow withdraw of Link tokens from the contract"
+				}
+			},
+			"notice": "THIS IS AN EXAMPLE CONTRACT WHICH USES HARDCODED VALUES FOR CLARITY. THIS EXAMPLE USES UN-AUDITED CODE. DO NOT USE THIS CODE IN PRODUCTION.",
 			"version": 1
 		}
 	},
 	"settings": {
 		"compilationTarget": {
-			"google_weather_oracle.sol": "Weather"
+			"Chainlink_api_call.sol": "APIConsumer"
 		},
 		"evmVersion": "london",
 		"libraries": {},
@@ -361,6 +255,22 @@
 			"urls": [
 				"bzz-raw://ba0f668a6f55a546ac1fe7fbf8539878a62811c1b0606fb4fadafb62f661e853",
 				"dweb:/ipfs/QmTUmXvjWQno67W4CUdkVyTRAwSKWrko8EPjtizzavNVLJ"
+			]
+		},
+		"@chainlink/contracts/src/v0.8/ConfirmedOwner.sol": {
+			"keccak256": "0x99d0b0786fe368970009c703f2249bfbc56340ddf1a28b60d2915bb58c34cd72",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://af0371c1af45db651823b9a3d5af761b08243c78f105166342eee28de356c8dd",
+				"dweb:/ipfs/QmPnC9qNDKwJFd5unwLb9pxjrutoe8MWjm5EXHTxq2kJ4x"
+			]
+		},
+		"@chainlink/contracts/src/v0.8/ConfirmedOwnerWithProposal.sol": {
+			"keccak256": "0xa2f137a1d066795aeac76226e58f33c982278cdd34b4f09e5a2243d5a0924654",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://a73f185d79d82e6d9baa531d55ffb88c80def1f6187dff93d3df6b2cb5ab7187",
+				"dweb:/ipfs/QmVZEePJvcN1KxSTaD5rhKhaMBWHqs6ZeZ5s17Ft6mR5hJ"
 			]
 		},
 		"@chainlink/contracts/src/v0.8/interfaces/ChainlinkRequestInterface.sol": {
@@ -403,6 +313,14 @@
 				"dweb:/ipfs/QmePqh8R8EZMygYkawshsWArTrVA8VCdamLGV6ZZsVJgTz"
 			]
 		},
+		"@chainlink/contracts/src/v0.8/interfaces/OwnableInterface.sol": {
+			"keccak256": "0xb8b3a97783dddc198b790c4cec1eda7fb47aa38cbaea6555220d0ed8c735c086",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://acf7ed6aff47fbddeff1b85e1225a717dfa8bfb3ab89db0e6564346afcf03693",
+				"dweb:/ipfs/QmQQn5sKn1ARbt1WhYoHwfTJhK8fbQi8MbDQeHxGXTPbPE"
+			]
+		},
 		"@chainlink/contracts/src/v0.8/interfaces/PointerInterface.sol": {
 			"keccak256": "0x42e5d62984f9d57bab7e32b2c6e3af86f4feb232ea2af6c822032fae88203bd7",
 			"license": "MIT",
@@ -435,12 +353,12 @@
 				"dweb:/ipfs/QmXjy7BmtnPeCLMaMnGGnsxDPGxohfDpYzP8PnUoh6gBGa"
 			]
 		},
-		"google_weather_oracle.sol": {
-			"keccak256": "0xe2a32d039f64a9867bf39a67efd178b5c80878da46d83ff7699461e434b4305c",
+		"Chainlink_api_call.sol": {
+			"keccak256": "0x93fbf6e4349776f66f74029b195f496f0ece2bb35ffe02a43ecd81e8320a1eb1",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://5681afa88abd1ea49a6110bf6a5b7c28d8df39857e1a80f7f62ee95ffdb2c82f",
-				"dweb:/ipfs/QmYnaNW1HP2eGHuW2EDMfFJAHVLbvuvynFoFWC2WayTT25"
+				"bzz-raw://b496ee219c87a70a66ca705f58709fd5756fd381274f0dcc9edf2584fa705a4e",
+				"dweb:/ipfs/QmXTrAHzbpSqvzE7PY99rjiCDHBXgjtoHZ22vBacQFm2xg"
 			]
 		}
 	},
