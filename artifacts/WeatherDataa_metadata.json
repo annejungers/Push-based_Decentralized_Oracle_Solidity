@@ -18,7 +18,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"oracle.sol": "Oracle"
+			"oracle.sol": "WeatherDataa"
 		},
 		"evmVersion": "london",
 		"libraries": {},
@@ -33,10 +33,10 @@
 	},
 	"sources": {
 		"oracle.sol": {
-			"keccak256": "0x4a1ec2d80454a211f92b1b0ca0fcf29de8675a74aae9a96249d1ba68780a84c1",
+			"keccak256": "0xbb38bc157e2c3bb9f59e7639361976724835b76513956a2014f97e6a2e746b7a",
 			"urls": [
-				"bzz-raw://ab17ad5f8ce63c6bf673a0ca5905423995150cb2e5dcd4ff5d3abc0afa0acadd",
-				"dweb:/ipfs/QmVMdNWG3qh5KUUrTCySDMCqMjt6FeTFrpNhLa5aMPGUC8"
+				"bzz-raw://15d33446d49cc6eb7645d82344b2392e5cbeab04b164dda58689256fd8de1f7a",
+				"dweb:/ipfs/QmWA2ex42FJ8RZGDfmq8bheWwosAWKA1x64y8mPjvRQqos"
 			]
 		}
 	},
