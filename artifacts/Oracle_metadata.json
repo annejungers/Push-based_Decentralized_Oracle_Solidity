@@ -4,7 +4,108 @@
 	},
 	"language": "Solidity",
 	"output": {
-		"abi": [],
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "city",
+						"type": "string"
+					}
+				],
+				"name": "getWeatherData",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "int256",
+								"name": "temperature",
+								"type": "int256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "wind_power",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "rain_percentage",
+								"type": "uint256"
+							},
+							{
+								"internalType": "enum Oracle.WindDirection",
+								"name": "wind_direction",
+								"type": "uint8"
+							}
+						],
+						"internalType": "struct Oracle.WeatherData",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "city",
+						"type": "string"
+					}
+				],
+				"name": "hasWeatherDataFor",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string[]",
+						"name": "cities",
+						"type": "string[]"
+					},
+					{
+						"components": [
+							{
+								"internalType": "int256",
+								"name": "temperature",
+								"type": "int256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "wind_power",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "rain_percentage",
+								"type": "uint256"
+							},
+							{
+								"internalType": "enum Oracle.WindDirection",
+								"name": "wind_direction",
+								"type": "uint8"
+							}
+						],
+						"internalType": "struct Oracle.WeatherData[]",
+						"name": "_weatherData",
+						"type": "tuple[]"
+					}
+				],
+				"name": "setWeatherData",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
 		"devdoc": {
 			"kind": "dev",
 			"methods": {},
@@ -18,7 +119,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"oracle.sol": "Oracle"
+			"oracle_solution.sol": "Oracle"
 		},
 		"evmVersion": "london",
 		"libraries": {},
@@ -32,11 +133,11 @@
 		"remappings": []
 	},
 	"sources": {
-		"oracle.sol": {
-			"keccak256": "0x4a1ec2d80454a211f92b1b0ca0fcf29de8675a74aae9a96249d1ba68780a84c1",
+		"oracle_solution.sol": {
+			"keccak256": "0x1ab09f097d117fb5603d1a9b3464ca001774cc2aadfce6b8cb6f120cd4915592",
 			"urls": [
-				"bzz-raw://ab17ad5f8ce63c6bf673a0ca5905423995150cb2e5dcd4ff5d3abc0afa0acadd",
-				"dweb:/ipfs/QmVMdNWG3qh5KUUrTCySDMCqMjt6FeTFrpNhLa5aMPGUC8"
+				"bzz-raw://e12c743c023b5c75c325c7e6adeaa0f1f9684ab538af66b2cfd70c943b1bd566",
+				"dweb:/ipfs/Qmf3zKEe1JA9DnvDwRsdppH1UpKZuWUZwEh2GadJCL6c37"
 			]
 		}
 	},
